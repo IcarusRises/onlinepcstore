@@ -1,0 +1,6 @@
+Products Cards from homePage.ejs
+-image
+-name
+-original
+-savings
+-price
