@@ -14,11 +14,16 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-// Home Page
+// HOME PAGE
 app.get("/", function(req, res){
     res.render("homepage", {laptops : laptops});
 })
 
+app.get("/laptops", function(req, res){
+    res.render("laptop");
+})
+
+// POST ROUTE
 app.post("/", function(req, res){
     let image = req.body.image;   
     let name = req.body.name;
@@ -30,10 +35,14 @@ app.post("/", function(req, res){
     res.redirect("/");
 })
 
+
+//LAPTOP FORM
 app.get("/new", function(req, res){
     res.render("new");
 });
 
+
+//LISTEN PORT
 app.listen(port, function(){
     console.log("ready captain")
 });
