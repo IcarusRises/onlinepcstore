@@ -23,6 +23,10 @@ app.get("/laptops", function(req, res){
     res.render("laptop");
 })
 
+app.get("/faq", function(req, res){
+    res.render("faq");
+})
+
 // POST ROUTE
 app.post("/", function(req, res){
     let image = req.body.image;   
