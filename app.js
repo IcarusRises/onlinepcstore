@@ -27,6 +27,10 @@ app.get("/faq", function(req, res){
     res.render("faq");
 })
 
+app.get("/about", function(req, res){
+    res.render("about");
+})
+
 // POST ROUTE
 app.post("/", function(req, res){
     let image = req.body.image;   
