@@ -4,3 +4,12 @@ Products Cards from homePage.ejs
 -original
 -savings
 -price
+
+-Email Grabber
+
+Pages:
+-Home Page X
+-Laptop Page X
+-About X
+-FAQ X
+-Contact Us X
