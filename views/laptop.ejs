@@ -27,27 +27,92 @@
         <div class="col mb-4">
             <div class="card text-center">
                 <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="overview" aria-selected="true" href="#">Overview</a>
+                            <a class="nav-link active" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                         </li>
                         <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="specifications" aria-selected="false" href="#">Specifications</a>
+                            <a class="nav-link" data-toggle="tab" href="#specifications" role="tab" aria-controls="specifications" aria-selected="false">Specifications</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="overview-tab"><p>overview</p></div>
-                        <div class="tab-pane fade" role="tabpanel" aria-labelledby="specifications-tab"><p>specifications</p></div>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- FIRST TAB / OVERVIEW -->
+                        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                            What's Included
+                            <ul>
+                                <li>3-cell battery</li>
+                                <li>Dell 11.6" Chromebook - Intel Celeron - 4GB Memory - 16GB eMMC Flash Memory</li>
+                                <li>Power adapter</li>
+                            </ul>
+                            Ratings & Reviews
+                            Overall Customer Rating:
+                        </div>
+                        <!-- SECOND TAB / SPECIFICATIONS-->
+                        <div class="tab-pane fade" id="specifications" role="tabpanel" aria-labelledby="specifications-tab">
+                                Specifications
+                                Laptop Category
+                                Category 	Laptops
+                                Memory Module Specifications
+                                RAM Capacity 	8GB
+                                RAM Type 	DDR4
+                                Monitor Specifications
+                                Screen Size 	14"
+                                Maximum Resolution 	1920 x 1080
+                                Display Type 	LED FHD UWVA 400 nit Anti-Glare
+                                Processor Specifications
+                                Processor Brand 	AMD
+                                Processor Class 	Ryzen 7
+                                Processor Type 	Quad-Core
+                                Processor Speed 	2.2GHz
+                                Processor Number 	2700U
+                                Notebook Specifications
+                                Lifestyle 	Business
+                                Condition 	New
+                                Operating Systems 	Windows 10 Professional 64-Bit
+                                Hard Disk Drive Specifications
+                                Capacity 	256GB
+                                Drive Types 	SSD
+                                Graphics Specifications
+                                GPU/VPU 	AMD Radeon Vega Graphics
+                                Optical Drive Specifications
+                                Optical Drive 	None
+                                Audio Specifications
+                                Audio Description 	Bang & Olufsen, dual stereo speakers, integrated multi array microphone
+                                Media Ports
+                                USB Ports (Total) 	1 USB 3.1
+                                2x USB-C
+                                LAN Ports 	1 - RJ-45
+                                Audio Out Jacks 	1 Headphone out/Microphone-in combo jack
+                                HDMI Ports 	1
+                                Communications
+                                Interface Type 	Gigabit Ethernet
+                                Protocols 	Intel 8265 AC 2x2 WiFi + Bluetooth 4.2
+                                Dimensions
+                                Width 	12.84"
+                                Height 	0.71"
+                                Depth 	9.22"
+                                Weight 	3.37 lbs
+                                Mouse Specifications
+                                Mouse Type 	ClickPad with Multi-Touch
+                                Keyboard Specifications
+                                Keyboard Type 	HP Premium Collaboration Keyboard spill resistant with drain
+                                Battery
+                                Battery Type 	3-Cell Lithium-ion
+                                Color
+                                Color 	Silver
+                                Webcam
+                                Integrated Webcam 	Yes
+                                Webcam Resolution 	720p
+                                Webcam Features 	HD Webcam
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 <% include partials/footer %>
