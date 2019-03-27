@@ -15,3 +15,10 @@
     background-color: #c60021;
 }
 
+#aboutUsJumbotron{
+    background-image: url("../img/aboutusplacer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
