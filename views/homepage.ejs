@@ -62,7 +62,7 @@
         <% laptops.forEach(function(laptop){ %>
           <div class="col-md-3">
             <div class="card text-center border-0" style="width: 17rem;">
-              <img src="<%= laptop.image %>" class="card-img-top p-3" alt="Card image cap">
+              <a href="/laptops/<%= laptop.id %>"><img src="<%= laptop.image %>" class="card-img-top p-3" alt="Card image cap"></a>
               <div class="card-body">
                 <h5 class="card-title"><%= laptop.name %></h5>
                 <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span>SAVE $<%= laptop.savings %></span></p>
