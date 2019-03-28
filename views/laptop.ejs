@@ -12,13 +12,13 @@
     <div class="row">
         <!-- FIRST COL - PC AND MINI SLIDER -->
         <div class="col">
-            <img src="img/PC/laptopbig.jpg" alt="">
+            <img src="<%= laptop.image %>" alt="">
         </div>
         <!-- SECOND COL PRICES -->
         <div class="col">
-            <h1 class="card-title">Dell - 11.6" Chromebook - Intel Celeron - 4GB Memory - 16GB eMMC Flash Memory - Black</h5>
-            <p class="card-text"><span class="text-muted"><s>Orignial Price</s></span>  <span>SAVE Savings</span></p>
-            <p class="h2 text-danger">Price</p>
+            <h1 class="card-title"><%= laptop.name %></h5>
+            <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %></s></span>  <span>SAVE $<%= laptop.savings %></span></p>
+            <p class="h2 text-danger">$<%= laptop.price %></p>
         </div>
     </div>
     <!-- SECOND ROW -->
