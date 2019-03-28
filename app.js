@@ -85,7 +85,15 @@ app.get("/new", function(req, res){
     res.render("new");
 });
 
-
+app.get("/laptops/:id", function(req, res){
+    Laptop.findById(req.params.id, function(err,laptop){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("laptop", {laptop: laptop});
+        }
+    })
+});
 
 //LISTEN PORT
 app.listen(port, function(){
