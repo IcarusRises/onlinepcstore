@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<div class="container">
+<div class="container-fluid">
     <!-- BREADCRUMB NAVIGATION -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -35,24 +35,24 @@
         </div>
         <!-- SECOND COL PRICES -->
         <div class="col-5">
-                <h3 class="card-title"><%= laptop.name %></h3>
-                <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %></s></span>  <span>SAVE $<%= laptop.savings %></span></p>
-                <p class="h2 text-danger">$<%= laptop.price %></p>
+            <h3 class="card-title"><%= laptop.name %></h3>
+            <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %></s></span>  <span>SAVE $<%= laptop.savings %></span></p>
+            <p class="h2 text-danger">$<%= laptop.price %></p>
         </div>
     </div>
-</div>     
     <div class="row mt-5">
-        <div class="col">>
-            <ol class="carousel-indicators">
-                <li data-target="#pc-preview" data-slide-to="0" class="active mx-2"> <img class="d-block w-100" src="<%= laptop.image %>"
-                class="img-fluid"></li>
-                <li data-target="#pc-preview" data-slide-to="1" class="mx-2" ><img class="d-block w-100" src="<%= laptop.image %>"
-                class="img-fluid"></li>
+        <div class="col">
+                <ol class="carousel-indicators">
+                <li data-target="#pc-preview" data-slide-to="0" class="active mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
+                    class="img-fluid"></li>
+                <li data-target="#pc-preview" data-slide-to="1" class="mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
+                    class="img-fluid"></li>
                 <li data-target="#pc-preview" data-slide-to="2" class="mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
-                class="img-fluid"></li>
+                    class="img-fluid"></li>
             </ol>
         </div>
     </div>
+</div> 
     <!-- SECOND ROW -->
     <div class="row">
         <!-- FIRST COL - CARD WITH NAVIGATION - FEATURES AND SPECS -->
