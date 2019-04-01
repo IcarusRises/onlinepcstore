@@ -23,3 +23,24 @@
     background-size: cover;
 }
 
+/* LAPTOP PAGE MINI SLIDER */
+
+.carousel-indicators li {
+    height: 50px;
+    width: 50px;
+ }
+ 
+
+.carousel-indicators img {
+   height: 50px;
+   width: 50px;
+   border: 1px solid black;
+   padding: 5px;
+}
+
+.carousel-indicators .active img{
+    border: 2px solid #007bff;
+ }
+
+
+
