@@ -12,7 +12,8 @@
     <!--FIRST ROW -->
     <div class="row">
         <!-- FIRST COL - PC AND MINI SLIDER -->
-        <div class="col-5">
+        <div class="container d-flex align-items-center">
+            <div class="col-6 ">
             <div id="pc-preview-container" class="container">
                 <!--Carousel Wrapper-->
                 <div id="pc-preview" class="carousel slide carousel-fade carousel-thumbnails" >
@@ -29,20 +30,22 @@
                         </div>
                     </div>
                     <!--/.Slides-->
-                    <!--/.Controls-->
                 </div>
             </div>
         </div>
         <!-- SECOND COL PRICES -->
-        <div class="col-5">
+        <div class="col-6 justify-content">
             <h3 class="card-title"><%= laptop.name %></h3>
             <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %></s></span>  <span>SAVE $<%= laptop.savings %></span></p>
             <p class="h2 text-danger">$<%= laptop.price %></p>
         </div>
+        </div>
     </div>
+    <!-- ROW -->
     <div class="row mt-5">
-        <div class="col">
-                <ol class="carousel-indicators">
+        <div class="col-12">
+            <!--  CAROUSEL INDICATORS -->
+            <ol class="carousel-indicators">
                 <li data-target="#pc-preview" data-slide-to="0" class="active mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
                     class="img-fluid"></li>
                 <li data-target="#pc-preview" data-slide-to="1" class="mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
@@ -55,7 +58,7 @@
 </div> 
     <!-- SECOND ROW -->
     <div class="row">
-        <!-- FIRST COL - CARD WITH NAVIGATION - FEATURES AND SPECS -->
+        <!--COL - CARD WITH NAVIGATION - FEATURES AND SPECS -->
         <div class="col mb-4">
             <div class="card text-center">
                 <div class="card-header">
