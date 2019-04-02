@@ -8,9 +8,11 @@ const port = 3000;
 const laptopSchema = new mongoose.Schema({
     image: String,
     name: String,
-    original: Number,
-    savings: Number,
-    price: Number
+    second: String,
+    third: String,
+    original: {type: Number},
+    savings: {type: Number},
+    price: {type: Number}
 });
 
 const Laptop = mongoose.model("Laptop", laptopSchema); 
@@ -65,10 +67,12 @@ app.get("/about", function(req, res){
 app.post("/", function(req, res){
     let image = req.body.image;   
     let name = req.body.name;
+    let second = req.body.second;
+    let third = req.body.third;
     let original = req.body.original;
     let savings = req.body.savings;
     let price = req.body.price;
-    let newLaptops = { image: image, name: name, original: original, savings: savings, price: price};
+    let newLaptops = { image: image, name: name, second: second, third: third, original: original, savings: savings, price: price};
     Laptop.create(newLaptops, function(err, newlyCreated){
         if(err){
             console.log(err);
