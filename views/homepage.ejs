@@ -60,14 +60,16 @@
       <div class="row mx-auto mb-3">
         <% laptops.forEach(function(laptop){ %>
           <div class="col-md-3">
-            <div class="card text-center" style="width: 17rem;">
-              <a href="/laptops/<%= laptop.id %>"><img src="<%= laptop.image %>" class="card-img-top p-3" alt="Card image cap"></a>
-              <div class="card-body">
-                <h5 class="card-title"><%= laptop.name %></h5>
-                <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span>SAVE $<%= laptop.savings %></span></p>
-                <p class="h2 text-danger">$<%= laptop.price %></p>
-              </div>
-            </div>
+            <a href="/laptops/<%= laptop.id %>" class="card-link">
+              <div class="card text-center" style="width: 17rem;">
+                  <img src="<%= laptop.image %>" class="card-img-top p-3" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= laptop.name %></h5>
+                    <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                    <p class="h2 text-danger">$<%= laptop.price %></p>
+                  </div>
+                </div>
+            </a>
           </div>
         <% }); %>
       </div>
