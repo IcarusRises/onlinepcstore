@@ -42,3 +42,12 @@
     border: 2px solid #007bff;
  }
 
+/* CARD STYLE */
+
+a.card-link {
+    color: inherit;
+}
+
+a.card-link:hover {
+    color: blue;
+}
