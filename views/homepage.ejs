@@ -54,14 +54,13 @@
   <!-- FEATURED DEALS -->
   <div class="container mt-3 text-center h1">
     <p> Featured Deals!</p>
-    <hr>
   </div>
   <!-- PRODUCTS -->
   <div class="container">
-      <div class="row mx-auto">
+      <div class="row mx-auto mb-3">
         <% laptops.forEach(function(laptop){ %>
           <div class="col-md-3">
-            <div class="card text-center border-0" style="width: 17rem;">
+            <div class="card text-center" style="width: 17rem;">
               <a href="/laptops/<%= laptop.id %>"><img src="<%= laptop.image %>" class="card-img-top p-3" alt="Card image cap"></a>
               <div class="card-body">
                 <h5 class="card-title"><%= laptop.name %></h5>
