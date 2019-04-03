@@ -6,6 +6,7 @@ const port = 3000;
 
 //SCHEMA
 const laptopSchema = new mongoose.Schema({
+    brand: String,
     image: String,
     name: String,
     second: String,
@@ -71,6 +72,7 @@ app.get("/about", function(req, res){
 
 // POST ROUTE
 app.post("/", function(req, res){
+    let brand = req.body.brand;
     let image = req.body.image;   
     let name = req.body.name;
     let second = req.body.second;
@@ -78,7 +80,7 @@ app.post("/", function(req, res){
     let original = req.body.original;
     let savings = req.body.savings;
     let price = req.body.price;
-    let newLaptops = { image: image, name: name, second: second, third: third, original: original, savings: savings, price: price};
+    let newLaptops = { brand: brand, image: image, name: name, second: second, third: third, original: original, savings: savings, price: price};
     Laptop.create(newLaptops, function(err, newlyCreated){
         if(err){
             console.log(err);
