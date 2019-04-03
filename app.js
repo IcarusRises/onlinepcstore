@@ -36,7 +36,13 @@ const Laptop = mongoose.model("Laptop", laptopSchema);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
-mongoose.connect("mongodb://localhost:27017/pcstore",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/pcstore", {useNewUrlParser: true}, (err) => {
+    if(!err) {
+        console.log("MongoDB Connection Found")
+    } else {
+        console.log("Error, Could Not Successfully Connect : " + err);
+    }
+});
 
 
 // HOME PAGE
