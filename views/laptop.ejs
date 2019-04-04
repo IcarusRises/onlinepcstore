@@ -19,15 +19,14 @@
                     <div id="pc-preview" class="carousel carousel-fade carousel-thumbnails" >
                         <!--Slides-->
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="<%= laptop.image %>" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="<%= laptop.second %>" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="<%= laptop.third %>" alt="Third slide">
-                            </div>
+                                <div class="carousel-item active">
+                                        <img class="d-block w-100" src="<%= laptop.image[0] %>" alt="<%= `${laptop.name} Image#0` %>">
+                                    </div>
+                            <% for(let i = 1; i < laptop.image.length; i++){ %>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="<%= laptop.image[i] %>" alt="<%= `${laptop.name} Image#${i}` %>">
+                                    </div>
+                            <% } %>
                         </div>
                         <!--/.Slides-->
                     </div>
@@ -36,7 +35,9 @@
         <!-- SECOND COL PRICES -->
             <div class="col-6 justify-content">
                 <h3 class="card-title"><%= laptop.name %></h3>
-                <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %></s></span>  <span>SAVE $<%= laptop.savings %></span></p>
+                <%if(laptop.original !== null || laptop.savings !== null){ %>
+                    <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                <% } %>
                 <p class="h2 text-danger">$<%= laptop.price %></p>
                 <button type="button" class="btn btn-primary mt-2">
                     Add to Cart
@@ -49,12 +50,15 @@
         <div class="col-12">
             <!--  CAROUSEL INDICATORS -->
             <ol class="carousel-indicators">
-                <li data-target="#pc-preview" data-slide-to="0" class="active mx-2"><img class="d-block w-100" src="<%= laptop.image %>"
-                    class="img-fluid"></li>
-                <li data-target="#pc-preview" data-slide-to="1" class="mx-2"><img class="d-block w-100" src="<%= laptop.second %>"
-                    class="img-fluid"></li>
-                <li data-target="#pc-preview" data-slide-to="2" class="mx-2"><img class="d-block w-100" src="<%= laptop.third %>"
-                    class="img-fluid"></li>
+                <% for(let i = 0; i < laptop.image.length; i++){ %>
+                    <% if(laptop.image.length[i] === 0){ %>
+                        <li data-target="#pc-preview" data-slide-to="<%= i %>" class="mx-2 active"><img class="d-block w-100" src="<%= laptop.image[i] %>"
+                        class="img-fluid"></li>
+                    <% } else {%>
+                        <li data-target="#pc-preview" data-slide-to="<%= i %>" class="mx-2"><img class="d-block w-100" src="<%= laptop.image[i] %>"
+                            class="img-fluid"></li>
+                    <% } %>
+                <% } %>
             </ol>
         </div>
     </div>
