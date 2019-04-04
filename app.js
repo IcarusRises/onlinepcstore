@@ -18,22 +18,6 @@ const laptopSchema = new mongoose.Schema({
 
 const Laptop = mongoose.model("Laptop", laptopSchema); 
 
-// Laptop.create({
-//     image: 'img/PC/probook.jpg',
-//     name: 'HP ProBook 450 G3',
-//     original: "469.99",
-//     savings: "170",
-//     price: "399.99"
-// }, function(err, laptop){
-//     if(err){
-//         console.log(err);
-//         console.log("ERROR");
-//     } else {
-//         console.log("SUCCESS");
-//         console.log(laptop)
-//     }
-// });
-
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
