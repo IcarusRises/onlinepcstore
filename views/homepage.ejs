@@ -65,7 +65,7 @@
                   <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
                   <div class="card-body">
                     <h5 class="card-title"><%= laptop.name %></h5>
-                    <%if(laptop.original !== null){ %>
+                    <%if(laptop.original !== null || laptop.savings !== null){ %>
                       <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
                     <% } %>
                     <p class="h2 text-danger">$<%= laptop.price %></p>
