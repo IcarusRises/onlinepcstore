@@ -7,16 +7,15 @@ const port = 3000;
 //SCHEMA
 const laptopSchema = new mongoose.Schema({
     brand: String,
-    image: String,
+    image: [String],
     name: String,
-    second: String,
-    third: String,
     original: {type: Number},
     savings: {type: Number},
     price: {type: Number}
 });
 
 const Laptop = mongoose.model("Laptop", laptopSchema); 
+
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -28,7 +27,6 @@ mongoose.connect("mongodb://localhost:27017/pcstore", {useNewUrlParser: true}, (
         console.log("Error, Could Not Successfully Connect : " + err);
     }
 });
-
 
 // HOME PAGE
 app.get("/",function(req, res){
@@ -59,12 +57,10 @@ app.post("/", function(req, res){
     let brand = req.body.brand;
     let image = req.body.image;   
     let name = req.body.name;
-    let second = req.body.second;
-    let third = req.body.third;
     let original = req.body.original;
     let savings = req.body.savings;
     let price = req.body.price;
-    let newLaptops = { brand: brand, image: image, name: name, second: second, third: third, original: original, savings: savings, price: price};
+    let newLaptops = { brand: brand, image: image, name: name, original: original, savings: savings, price: price};
     Laptop.create(newLaptops, function(err, newlyCreated){
         if(err){
             console.log(err);
