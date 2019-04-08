@@ -9,6 +9,13 @@
             <li class="breadcrumb-item active" aria-current="page"><%= laptop.name %></li>
         </ol>
     </nav>
+    <!-- EDIT/DELETE BUTTONS -->
+    <div class="container text-center">
+            <a class="btn btn-success" href="/laptops/<%= laptop.id%>/edit">Edit</a>
+            <form id="delete-form" action="/laptops/<%= laptop.id%>?_method=DELETE"> </form>class="d-inline" method="Post" 
+                <button class="btn btn-danger" type="button">Delete</button>
+            </form>
+        </div>
     <!--FIRST ROW -->
     <div class="row">
         <!-- FIRST COL - PC AND MINI SLIDER -->
