@@ -93,9 +93,27 @@ app.get("/laptops/:id", function(req, res){
 });
 
 //LAPTOP EDIT
-app.get("/laptop/:id/edit", function(req, res){
+app.get("/laptops/:id/edit", function(req, res){
+    Laptop.findById(req.params.id, function(err,foundLaptop){
+        if(err){
+            console.log("Error: " + err );
+            res.redirect("/");
+        } else {
+            res.render("edit", {laptop: foundLaptop});
+        }
+    });
+});
 
-})
+//LAPTOP UPDATE
+app.put("/laptops/:id", function(req, res){
+    Laptop.findOneAndUpdate(req.params.id, req.body.laptop, function(err, updatedLaptop){
+        if(err){
+            res.redirect("/");
+        } else {
+            res.redirect("/laptops/" + req.params.id);
+        }
+    });
+});
 
 //LISTEN PORT
 app.listen(port, function(){
