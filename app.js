@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 const port = 3000;
 
 //SCHEMA
@@ -20,6 +21,7 @@ const Laptop = mongoose.model("Laptop", laptopSchema);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 mongoose.connect("mongodb://localhost:27017/pcstore", {useNewUrlParser: true}, (err) => {
     if(!err) {
         console.log("MongoDB Connection Found")
@@ -40,14 +42,17 @@ app.get("/",function(req, res){
     })
 })
 
+//LAPTOPS
 app.get("/laptops", function(req, res){
     res.render("laptop");
 })
 
+//FAQ
 app.get("/faq", function(req, res){
     res.render("faq");
 })
 
+//ABOUT
 app.get("/about", function(req, res){
     res.render("about");
 })
@@ -76,6 +81,7 @@ app.get("/new", function(req, res){
     res.render("new");
 });
 
+//LAPTOP 
 app.get("/laptops/:id", function(req, res){
     Laptop.findById(req.params.id, function(err,laptop){
         if(err){
@@ -85,6 +91,11 @@ app.get("/laptops/:id", function(req, res){
         }
     })
 });
+
+//LAPTOP EDIT
+app.get("/laptop/:id/edit", function(req, res){
+
+})
 
 //LISTEN PORT
 app.listen(port, function(){

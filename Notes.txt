@@ -31,12 +31,20 @@ main:
 
 Pages:
 
+homepage.ejs
+-Caused an issue with the indicators from the homepage when altering them for laptop.ejs, need to fix.
+
 laptop.ejs
 -different image sizes break slider, how can i fix this? X
 -add borders around mini images X
 -add selected for mini image
 -Add add to cart button X
     -Add function to button
+
+new.ejs
+-Added more fields
+    -brands
+    -alternate pics for mini slider
 
 Questions
 
