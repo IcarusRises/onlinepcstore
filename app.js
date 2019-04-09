@@ -111,6 +111,18 @@ app.put("/laptops/:id", function(req, res){
             res.redirect("/");
         } else {
             res.redirect("/laptops/" + req.params.id);
+            console.log(updatedLaptop);
+        }
+    });
+});
+
+//LAPTOP DESTROY
+app.delete("/laptops/:id", function(req, res){
+    Laptop.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/");
+        } else {
+            res.redirect("/");
         }
     });
 });
