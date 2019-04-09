@@ -12,8 +12,8 @@
     <!-- EDIT/DELETE BUTTONS -->
     <div class="container text-center">
             <a class="btn btn-success" href="/laptops/<%= laptop.id%>/edit">Edit</a>
-            <form id="delete-form" action="/laptops/<%= laptop.id%>?_method=DELETE"> </form>class="d-inline" method="Post" 
-                <button class="btn btn-danger" type="button">Delete</button>
+            <form action="/laptops/<%= laptop.id %>?_method=DELETE" method="POST" class="d-inline">
+                <button class="btn btn-danger" type="submit">Delete</button>
             </form>
         </div>
     <!--FIRST ROW -->
