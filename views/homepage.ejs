@@ -58,7 +58,7 @@
   <!-- PRODUCTS -->
   <div class="container">
       <div class="row mx-auto mb-3">
-        <% laptops.forEach(function(laptop){ %>
+        <% laptops.splice(0,20).forEach(function(laptop){ %>
           <div class="col-md-3 mb-3">
             <a href="/laptops/<%= laptop.id %>" class="card-link">
               <div class="card text-center h-100" style="width: 17rem;">
