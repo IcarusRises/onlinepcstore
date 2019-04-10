@@ -44,7 +44,7 @@ app.get("/",function(req, res){
 
 //LAPTOPS
 app.get("/laptops", function(req, res){
-    res.render("laptop");
+    res.render("laptops");
 })
 
 //FAQ
