@@ -20,6 +20,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.20"
+    "mongoose": "^5.4.20",
+    "nodemailer": "^6.1.0"
   }
 }

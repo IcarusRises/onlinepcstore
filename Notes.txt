@@ -46,6 +46,9 @@ new.ejs
     -brands
     -alternate pics for mini slider
 
+edit.ejs
+-Page has issue with updated information, it's not passing through to the website.
+
 Questions
 
 -How can I write a script that will sort and input the specs?

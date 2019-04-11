@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const nodeMailer = require("nodemailer");
 const port = 3000;
 
 //SCHEMA
@@ -131,6 +132,33 @@ app.delete("/laptops/:id", function(req, res){
 app.get("/contact",function(req, res){
     res.render("contact");
 })
+
+app.post("/contact",function(req,res){
+    let mailOpts, smtpTrans;
+    smtpTrans = nodeMailer.createTransport({
+        host: changeThisLater,
+        port: changeThisLater,
+        secure: true;
+        auth: {
+            user: changeThisLater,
+            pass: changeThisLater
+        }
+    });
+    mailOpts = {
+        from: req.body.name + ' &lt;' + req.body.email + '&gt;',
+        to: changeThisLater,
+        subject: "New message from contact form at Linhs PC Store"
+        text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+    };
+    smtpTrans.sendMail(mailOpts, function(err, res){
+        if(err){
+            res.render("contact-failure");
+        } else {
+            res.render("contact-success");
+        }
+    })
+});
+
 //PURCHASE
 app.get("/purchase",function(req, res){
     res.render("purchase");
