@@ -127,6 +127,19 @@ app.delete("/laptops/:id", function(req, res){
     });
 });
 
+//CONTACT
+app.get("/contact",function(req, res){
+    res.render("contact");
+})
+//PURCHASE
+app.get("/purchase",function(req, res){
+    res.render("purchase");
+})
+//MANAGER LOGIN
+app.get("/login",function(req, res){
+    res.render("login");
+})
+
 //LISTEN PORT
 app.listen(port, function(){
     console.log("ready captain")
