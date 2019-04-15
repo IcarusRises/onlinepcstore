@@ -138,7 +138,7 @@ app.post("/contact",function(req,res){
     smtpTrans = nodeMailer.createTransport({
         host: changeThisLater,
         port: changeThisLater,
-        secure: true;
+        secure: true,
         auth: {
             user: changeThisLater,
             pass: changeThisLater
@@ -147,7 +147,7 @@ app.post("/contact",function(req,res){
     mailOpts = {
         from: req.body.name + ' &lt;' + req.body.email + '&gt;',
         to: changeThisLater,
-        subject: "New message from contact form at Linhs PC Store"
+        subject: "New message from contact form at Linhs PC Store",
         text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
     };
     smtpTrans.sendMail(mailOpts, function(err, res){
