@@ -74,11 +74,6 @@ router.post("/contact",function(req,res){
     });
 });
 
-//PURCHASE
-router.get("/purchase",function(req, res){
-    res.render("purchase");
-});
-
 //MANAGER LOGIN
 router.get("/login",function(req, res){
     res.render("login");
