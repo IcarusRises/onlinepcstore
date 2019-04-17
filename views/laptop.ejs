@@ -46,9 +46,7 @@
                     <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
                 <% } %>
                 <p class="h2 text-danger">$<%= laptop.price %></p>
-                <button type="button" class="btn btn-primary mt-2">
-                    Add to Cart
-                </button>
+                <a href="/laptops/<%= laptop.id %>/purchase" class="btn btn-primary mt-2">Add to Cart</a>
             </div>
         </div>
     </div>
