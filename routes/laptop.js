@@ -20,6 +20,18 @@ router.get("/:id", function(req, res){
     })
 });
 
+//PURCHASE
+router.get("/:id/purchase",function(req, res){
+    Laptop.findById(req.params.id, function(err,laptop){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("purchase", {laptop: laptop});
+        }
+    })
+});
+
+
 //LAPTOP CREATION FORM
 router.get("/new", function(req, res){
     res.render("new");
