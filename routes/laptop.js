@@ -5,7 +5,14 @@ const Laptop = require("../models/laptops");
 
 //LAPTOPS: Shows Every Laptop
 router.get("/", function(req, res){
-    res.render("laptops");
+    Laptop.find({}, function(err, allLaptops){
+        if(err){
+            console.log("ERROR");
+            console.log(err);
+        } else {
+            res.render("laptops", {laptops : allLaptops})
+        }
+    })
 })
 
 
