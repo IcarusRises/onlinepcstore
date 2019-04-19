@@ -60,8 +60,10 @@
                         <li data-target="#pc-preview" data-slide-to="<%= i %>" class="mx-2 active"><img class="d-block w-100" src="<%= laptop.image[i] %>"
                         class="img-fluid"></li>
                     <% } else {%>
+                        <% if(laptop.image[i] !== ''){ %>
                         <li data-target="#pc-preview" data-slide-to="<%= i %>" class="mx-2"><img class="d-block w-100" src="<%= laptop.image[i] %>"
                             class="img-fluid"></li>
+                            <% } %>
                     <% } %>
                 <% } %>
             </ol>
