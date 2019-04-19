@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Laptop = require("../models/laptops");
 
+//LAPTOP CREATION FORM
+router.get("/new", function(req, res){
+    res.render("new");
+});
 
 //LAPTOPS: Shows Every Laptop
 router.get("/", function(req, res){
@@ -39,13 +43,10 @@ router.get("/:id/purchase",function(req, res){
 });
 
 
-//LAPTOP CREATION FORM
-router.get("/new", function(req, res){
-    res.render("new");
-});
+
 
 //LAPTOP EDIT
-router.get("/laptops/:id/edit", function(req, res){
+router.get("/:id/edit", function(req, res){
     Laptop.findById(req.params.id, function(err,foundLaptop){
         if(err){
             console.log("Error: " + err );
@@ -57,8 +58,8 @@ router.get("/laptops/:id/edit", function(req, res){
 });
 
 //LAPTOP UPDATE
-router.put("/laptops/:id", function(req, res){
-    Laptop.findOneAndUpdate(req.params.id, req.body.laptop, function(err, updatedLaptop){
+router.put("/:id", function(req, res){
+    Laptop.findOneAndUpdate({_id: req.params.id}, req.body.laptop, function(err, updatedLaptop){
         if(err){
             res.redirect("/");
         } else {
