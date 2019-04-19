@@ -1,5 +1,191 @@
 <%include partials/header%>
-
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <p class="h1">Brands</p>
+        </div>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'acer'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'apple'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'asus'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'dell'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'google'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'hp'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'lenovo'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'microsoft'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+    <div class="row">
+        <% laptops.forEach(function(laptop){ %>
+            <% if(laptop.brand.toLowerCase() === 'samsung'){ %>
+                <div class="col-md-3 mb-3">
+                    <a href="/laptops/<%= laptop.id %>" class="card-link">
+                      <div class="card text-center h-100" style="width: 17rem;">
+                          <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><%= laptop.name %></h5>
+                            <%if(laptop.original !== null || laptop.savings !== null){ %>
+                              <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                            <% } %>
+                            <p class="h2 text-danger">$<%= laptop.price %></p>
+                          </div>
+                        </div>
+                    </a>
+                  </div>
+            <% }; %>
+        <% });%>
+    </div>
+</div>
 
 
 
