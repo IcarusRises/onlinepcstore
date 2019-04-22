@@ -1,0 +1,38 @@
+<%include partials/header%>
+
+<!--PRODUCTS CONTAINER-->
+<div class="container-fluid bg-white">
+  <!-- FEATURED DEALS -->
+  <div class="container mt-3 text-center h1">
+    <p> Search Results:</p>
+  </div>
+  <p class="h5 text-center"><%= noMatch %></p>
+  <!-- PRODUCTS -->
+  <div class="container">
+      <div class="row mx-auto mb-3">
+        <% laptops.forEach(function(laptop){ %>
+          <div class="col-md-3 mb-3">
+            <a href="/laptops/<%= laptop.id %>" class="card-link">
+              <div class="card text-center h-100" style="width: 17rem;">
+                  <img src="<%= laptop.image[0] %>" class="card-img-top p-3" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= laptop.name %></h5>
+                    <%if(laptop.original !== null || laptop.savings !== null){ %>
+                      <p class="card-text"><span class="text-muted"><s>$<%= laptop.original %> </s></span>  <span class="text-dark">SAVE $<%= laptop.savings %></span></p>
+                    <% } %>
+                    <p class="h2 text-danger">$<%= laptop.price %></p>
+                  </div>
+                </div>
+            </a>
+          </div>
+        <% }); %>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+<%include partials/footer%>
