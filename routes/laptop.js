@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Laptop = require("../models/laptops");
+const bodyParser = require("body-parser");
 
 //LAPTOP CREATION FORM
 router.get("/new", function(req, res){
@@ -16,9 +17,36 @@ router.get("/", function(req, res){
         } else {
             res.render("laptops", {laptops : allLaptops})
         }
-    })
-})
+    });
+});
 
+//LAPTOPS SEARCH QUERY
+router.get("/search", function(req,res){
+    let noMatch = null;
+    if(req.query.search){
+        //Gets Laptop from MongoDB
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        Laptop.find({ "name": regex }, function(err, foundLaptops) {
+            if(err) {
+                console.log(err);
+            } else {
+                if(foundLaptops.length < 1){
+                    noMatch = `Sorry, Search could not find ${req.query.search}, please try again.`
+                }
+               res.render("search", { laptops: foundLaptops, noMatch: noMatch });
+            }
+        }); 
+     } else {
+        Laptop.find({}, function(err, allLaptops){
+            if(err){
+                console.log("ERROR");
+                console.log(err);
+            } else {
+                res.render("laptops", {laptops : allLaptops, noMatch: noMatch})
+            }
+        });
+     };
+});
 
 //LAPTOP: Individual Laptops 
 router.get("/:id", function(req, res){
@@ -79,5 +107,9 @@ router.delete("/:id", function(req, res){
         }
     });
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
