@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('passport');
 const nodeMailer = require("nodemailer");
 const Laptop = require("../models/laptops");
+const User = require("../models/user");
+
 
 // HOME PAGE
 router.get("/",function(req, res){
@@ -13,6 +16,84 @@ router.get("/",function(req, res){
             res.render("homepage", {laptops : allLaptops})
         }
     })
+});
+
+//USER REGISTRATION
+
+//REGISTRATION FORM
+router.get("/registernewuser", function(req, res){
+    res.render("registration");
+});
+
+// REGISTER USER
+router.post('/registernewuser', function(req, res){
+    var password = req.body.password;
+    var password2 = req.body.password2;
+  
+    if (password == password2){
+      const newUser = new User({
+        username: req.body.username,
+        password: req.body.password
+      });
+  
+      User.createUser(newUser, function(err, user){
+        if(err) throw err;
+        res.redirect("/");
+      });
+    } else{
+      res.status(500).send("{errors: \"Passwords don't match\"}").end()
+    }
+  });
+
+//USING LOCAL STRATEGY WITH PASSPORT
+const LocalStrategy = require('passport-local').Strategy;
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.getUserByUsername(username, function(err, user){
+      if(err) throw err;
+      if(!user){
+        return done(null, false, {message: 'Unknown User'});
+      }
+      User.comparePassword(password, user.password, function(err, isMatch){
+        if(err) throw err;
+     	if(isMatch){
+     	  return done(null, user);
+     	} else {
+     	  return done(null, false, {message: 'Invalid password'});
+     	}
+     });
+   });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  
+passport.deserializeUser(function(id, done) {
+    User.getUserById(id, function(err, user) {
+      done(err, user);
+    });
+});
+
+// 
+router.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    res.send(req.user);
+  }
+);
+
+// // Endpoint to get current user
+// router.get('/user', function(req, res){
+//   res.send(req.user);
+// })
+
+
+// LOGOUT
+router.get('/logout', function(req, res){
+  req.logout();
+  res.send(null)
 });
 
 // POST ROUTE
@@ -73,11 +154,5 @@ router.post("/contact",function(req,res){
         }
     });
 });
-
-//MANAGER LOGIN
-router.get("/login",function(req, res){
-    res.render("login");
-});
-
 
 module.exports = router;
