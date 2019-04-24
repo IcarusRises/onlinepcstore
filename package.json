@@ -16,9 +16,12 @@
   "author": "Billie Tran",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "cancan": "^3.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.20",
     "nodemailer": "^6.1.0",
