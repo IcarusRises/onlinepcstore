@@ -12,6 +12,7 @@ userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", userSchema);
 
+//MIDDLEWARE
 module.exports.createUser = function(newUser, callback){
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -36,3 +37,10 @@ module.exports.createUser = function(newUser, callback){
       callback(null, isMatch);
     });
   };
+
+  module.exports.checkUserAuthorization = function(req, res, next){
+    if(req.isAuthenticated()){
+      return next();
+    }
+    res.redirect("login");
+  }
