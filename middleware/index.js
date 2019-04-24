@@ -1,5 +1,6 @@
 const middlewareExports = module.exports = {};
 const bcrypt = require("bcryptjs");
+const User = require("../models/user");
 
 //MIDDLEWARE
 middlewareExports.createUser = function(newUser, callback){
@@ -27,11 +28,10 @@ middlewareExports.comparePassword = function(candidatePassword, hash, callback){
     });
   };
 
-middlewareExports.checkUserAuthorization = function(req, res, next){
+  middlewareExports.isLoggedIn = function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
-      return next();
-    }
-    res.redirect("login");
-  };
-
+        return next();
+    };
+    res.redirect("/login");
+}
 
