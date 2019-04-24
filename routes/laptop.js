@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const userMiddleware = require("../middleware/index");
 const Laptop = require("../models/laptops");
-const bodyParser = require("body-parser");
+
 
 //LAPTOP CREATION FORM
-router.get("/new", function(req, res){
+router.get("/new", userMiddleware.isLoggedIn, function(req, res){
     res.render("new");
 });
 
@@ -74,7 +75,7 @@ router.get("/:id/purchase",function(req, res){
 
 
 //LAPTOP EDIT
-router.get("/:id/edit", function(req, res){
+router.get("/:id/edit", userMiddleware.isLoggedIn, function(req, res){
     Laptop.findById(req.params.id, function(err,foundLaptop){
         if(err){
             console.log("Error: " + err );
@@ -86,7 +87,7 @@ router.get("/:id/edit", function(req, res){
 });
 
 //LAPTOP UPDATE
-router.put("/:id", function(req, res){
+router.put("/:id", userMiddleware.isLoggedIn, function(req, res){
     Laptop.findOneAndUpdate({_id: req.params.id}, req.body.laptop, function(err, updatedLaptop){
         if(err){
             res.redirect("/");
@@ -98,7 +99,7 @@ router.put("/:id", function(req, res){
 });
 
 //LAPTOP DESTROY
-router.delete("/:id", function(req, res){
+router.delete("/:id", userMiddleware.isLoggedIn, function(req, res){
     Laptop.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect("/");
