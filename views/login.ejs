@@ -3,19 +3,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6 text-center">
-            <form class="bg-secondary rounded py-5 px-5 mb-3">
+            <form action="/login" method="POST" class="bg-secondary rounded py-5 px-5 mb-3">
                 <p class="h1"> LOGIN </p>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-tie"></i></span>
                     </div>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="text" name="username" class="form-control" aria-describedby="username" placeholder="Enter Username">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock-alt"></i></span>
                     </div>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-outline-light btn-block my-5">Submit</button>
             </form>
