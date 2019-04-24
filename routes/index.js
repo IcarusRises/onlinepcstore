@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const passport = require('passport');
+const passport = require("passport");
+const bodyParser = require("body-parser");
 const nodeMailer = require("nodemailer");
 const Laptop = require("../models/laptops");
 const User = require("../models/user");
+const userMiddleware = require("../middleware/index");
 
 
 // HOME PAGE
@@ -36,7 +38,7 @@ router.post('/registernewuser', function(req, res){
         password: req.body.password
       });
   
-      User.createUser(newUser, function(err, user){
+      userMiddleware.createUser(newUser, function(err, user){
         if(err) throw err;
         res.redirect("/");
       });
@@ -49,12 +51,12 @@ router.post('/registernewuser', function(req, res){
 const LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.getUserByUsername(username, function(err, user){
+    userMiddleware.getUserByUsername(username, function(err, user){
       if(err) throw err;
       if(!user){
         return done(null, false, {message: 'Unknown User'});
       }
-      User.comparePassword(password, user.password, function(err, isMatch){
+      userMiddleware.comparePassword(password, user.password, function(err, isMatch){
         if(err) throw err;
      	if(isMatch){
      	  return done(null, user);
@@ -76,20 +78,17 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-// 
-router.post('/login',
-  passport.authenticate('local'),
-  function(req, res) {
-    res.send(req.user);
-  }
-);
+//LOGIN
+router.get("/login", function(req, res){
+  res.render("login");
+});
 
-// // Endpoint to get current user
-// router.get('/user', function(req, res){
-//   res.send(req.user);
-// })
-
-
+//LOGIN LOGIC
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login"
+}), function(req, res){
+});
 // LOGOUT
 router.get('/logout', function(req, res){
   req.logout();
