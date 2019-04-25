@@ -52,8 +52,9 @@ router.get("/search", function(req,res){
 //LAPTOP: Individual Laptops 
 router.get("/:id", function(req, res){
     Laptop.findById(req.params.id, function(err,laptop){
-        if(err){
+        if(err || !laptop){
             console.log(err);
+            res.redirect('/');
         } else {
             res.render("laptop", {laptop: laptop});
         }
