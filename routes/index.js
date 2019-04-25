@@ -92,7 +92,7 @@ router.post("/login", passport.authenticate("local", {
 // LOGOUT
 router.get('/logout', function(req, res){
   req.logout();
-  res.send(null)
+  res.redirect("login");
 });
 
 // POST ROUTE
