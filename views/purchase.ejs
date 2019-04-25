@@ -11,6 +11,37 @@
             </p>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <img src=" <%= laptop.image[0] %>" alt=" <%= laptop.name %>">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                        <label for="exampleFormControlInput1">Phone Number</label>
+                        <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">How do you plan on making this purchase?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Cash</option>
+                    <option>Back Deposit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <%include partials/footer%>
