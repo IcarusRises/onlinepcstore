@@ -12,16 +12,12 @@
     <body>
         <!-- NAVBAR MAIN -->
         <nav class="navbar navbar-expand-lg navbar-light mb-2">
+            <!-- LOGO/BUTTON-->
             <a class="navbar-brand" href="/"><i class="fas fa-desktop"></i>Linh's PC Store</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- <div class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-addon input-group-btn">
-                    <button class="btn btn-outline-secondary" type="button">Button</button>
-                </div>
-            </div> -->
+            <!-- SEARCH -->
             <form action="/laptops/search" method="GET">
                 <div class="input-group my-2 my-lg-0">
                     <input type="text" name="search" class="form-control">
@@ -30,6 +26,7 @@
                     </div>
                 </div>
             </form>
+            <!-- BRANDS -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -37,5 +34,9 @@
                     </li>
                 </ul>
             </div>
+            <!-- LOGOUT -->
+            <% if(currentUser){ %>
+            <a class="nav-link" href="/logout">Logout</a>
+            <% }; %>
         </nav>
         
