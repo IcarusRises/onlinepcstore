@@ -10,12 +10,14 @@
         </ol>
     </nav>
     <!-- EDIT/DELETE BUTTONS -->
-    <div class="container text-center">
+    <% if(currentUser){ %>
+        <div class="container text-center">
             <a class="btn btn-success" href="/laptops/<%= laptop.id%>/edit">Edit</a>
             <form action="/laptops/<%= laptop.id %>?_method=DELETE" method="POST" class="d-inline">
                 <button class="btn btn-danger" type="submit">Delete</button>
             </form>
         </div>
+    <% } %>
     <!--FIRST ROW -->
     <div class="row">
         <!-- FIRST COL - PC AND MINI SLIDER -->
