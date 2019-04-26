@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const User = require("./models/user");
 const port = process.env.PORT || 3000;
 
@@ -15,7 +16,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-mongoose.connect("mongodb://localhost:27017/pcstore", {useNewUrlParser: true}, (err) => {
+app.use(cookieParser());
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true}, (err) => {
     if(!err) {
         console.log("MongoDB Connection Found")
     } else {
@@ -38,6 +40,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//CURRENT USER
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     next();
